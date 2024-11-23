@@ -3,6 +3,6 @@ on: push
 jobs:
   hello:
     runs-on: ubuntu-latest
-    seteps
+    steps
       - run: echo "Hello, world!"
       - uses: actions/checkout@v4
