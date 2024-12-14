@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        OPENAI_API_KEY: ${OPENAI_API_KEY}
+    ports:
+      - "3000:3000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
