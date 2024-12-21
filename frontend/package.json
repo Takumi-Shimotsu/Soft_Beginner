@@ -1,0 +1,33 @@
+{
+  "name": "chatbot-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "langchain": "^0.0.200",
+    "openai": "^4.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts": "5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "https://7j9b4x3ub3.execute-api.ap-northeast-1.amazonaws.com",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
