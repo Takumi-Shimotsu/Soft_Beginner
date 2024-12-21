@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_OPENAI_API_KEY: ${REACT_APP_OPENAI_API_KEY}
+    ports:
+      - "3000:3000" # フロントエンド用ポート
+    environment:
+      - REACT_APP_OPENAI_API_KEY=${REACT_APP_OPENAI_API_KEY}
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./frontend:/usr/src/app/
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend # バックエンドのディレクトリを指定
+      dockerfile: Dockerfile
+    command: node server.js
+    ports:
+      - "5000:5000" # バックエンド用ポート
+    env_file:
+      - .env
+    environment:
+      - REACT_APP_OPENAI_API_KEY=${REACT_APP_OPENAI_API_KEY}
+    volumes:
+      - ./backend:/usr/src/app/ # バックエンドのコードをマウント
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
